@@ -28,55 +28,71 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-3 col-numbers">
-            <button class="btn btn-primary btn-calculator-numbers" id="9" >9</button>
+        <div class="col-lg-2 col-numbers">
+            <button type="button" class="btn btn-secondary btn-calculator-numbers" id="9" >9</button>
         </div>
-        <div class="col-lg-3 col-numbers">
-            <button class="btn btn-primary btn-calculator-numbers" id="8" >8</button>
+        <div class="col-lg-2 col-numbers">
+            <button type="button" class="btn btn-secondary btn-calculator-numbers" id="8" >8</button>
         </div>
-        <div class="col-lg-3 col-numbers">
-            <button class="btn btn-primary btn-calculator-numbers" id="7" >7</button>
+        <div class="col-lg-2 col-numbers">
+            <button type="button" class="btn btn-secondary btn-calculator-numbers" id="7" >7</button>
         </div>
         <div class="col-lg-3 col-operators">
-            <button class="btn btn-primary btn-calculator-operator" id="sum" >+</button>
+            <button type="button" class="btn btn-primary btn-calculator-operator" id="more" >+</button>
+        </div>
+        <div class="col-lg-3 col-operators">
+            <button type="button" class="btn btn-primary btn-calculator-operator" id="minus" >-</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-numbers">
+            <button type="button" class="btn btn-secondary btn-calculator-numbers" id="6" >6</button>
+        </div>
+        <div class="col-lg-2 col-numbers">
+            <button type="button" class="btn btn-secondary btn-calculator-numbers" id="5" >5</button>
+        </div>
+        <div class="col-lg-2 col-numbers">
+            <button type="button" class="btn btn-secondary btn-calculator-numbers" id="4" >4</button>
+        </div>
+        <div class="col-lg-3 col-operators">
+            <button type="button" class="btn btn-primary btn-calculator-operator" id="multiple" >*</button>
+        </div>
+        <div class="col-lg-3 col-operators">
+            <button type="button" class="btn btn-primary btn-calculator-operator" id="division" >%</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-numbers">
+            <button type="button" class="btn btn-secondary btn-calculator-numbers" id="3" >3</button>
+        </div>
+        <div class="col-lg-2 col-numbers">
+            <button type="button" class="btn btn-secondary btn-calculator-numbers" id="2" >2</button>
+        </div>
+        <div class="col-lg-2 col-numbers">
+            <button type="button" class="btn btn-secondary btn-calculator-numbers" id="1" >1</button>
+        </div>
+        <div class="col-lg-3 col-operators">
+            <button type="button" class="btn btn-primary btn-calculator-operator" id="mod" >MOD</button>
+        </div>
+        <div class="col-lg-3 col-operators">
+            <button type="button" class="btn btn-danger btn-calculator-operator" id="reset" >Reset</button>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-3 col-numbers">
-            <button class="btn btn-primary btn-calculator-numbers" id="6" >6</button>
+            <button type="button" class="btn btn-secondary btn-calculator-numbers" id="0" >0</button>
         </div>
         <div class="col-lg-3 col-numbers">
-            <button class="btn btn-primary btn-calculator-numbers" id="5" >5</button>
+            <button type="button" class="btn btn-secondary btn-calculator-numbers" id="point" >.</button>
         </div>
-        <div class="col-lg-3 col-numbers">
-            <button class="btn btn-primary btn-calculator-numbers" id="4" >4</button>
-        </div>
-        <div class="col-lg-3 col-operators">
-            <button class="btn btn-primary btn-calculator-operator" id="sum" >-</button>
+        <div class="col-lg-6 col-numbers">
+            <button type="button" class="btn btn-success btn-block btn-calculator-numbers" id="equals" >=</button>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-3 col-numbers">
-            <button class="btn btn-primary btn-calculator-numbers" id="3" >3</button>
-        </div>
-        <div class="col-lg-3 col-numbers">
-            <button class="btn btn-primary btn-calculator-numbers" id="2" >2</button>
-        </div>
-        <div class="col-lg-3 col-numbers">
-            <button class="btn btn-primary btn-calculator-numbers" id="1" >1</button>
-        </div>
-        <div class="col-lg-3 col-operators">
-            <button class="btn btn-primary btn-calculator-operator" id="mod" >MOD</button>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-4 offset-lg-8">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">=</button>
-        </div>
-    </div>
 
 </form>
 
