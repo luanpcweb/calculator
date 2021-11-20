@@ -1,0 +1,28 @@
+version: "3.3"
+
+services:
+  db:
+    image: mysql
+    restart: always
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: calculatortest
+      MYSQL_DATABASE: calculator
+    container_name: calculator_mysql
+
+  nginx:
+    build: ./.docker/nginx
+    ports:
+      - '8080:80'
+    depends_on:
+      - php
+    volumes:
+      - .:/opt/work
+    container_name: calculator_nginx
+
+  php:
+    build: ./.docker/php
+    volumes:
+      - .:/opt/work
+    container_name: calculator_php
