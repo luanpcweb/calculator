@@ -110,6 +110,23 @@ body {
     color: #777;
 }
 
+.col-numbers {
+    /*padding-left: 0;*/
+    /*padding-right: 0;*/
+    margin: 3% 0 3% 0;
+}
+
+.col-operators {
+    margin: 3% 0 3% 0;
+}
+.btn-calculator-numbers {
+    width: 100%;
+}
+
+.btn-calculator-operator {
+    width: 100%;
+}
+
 /* Fallback for Edge
 -------------------------------------------------- */
 @supports (-ms-ime-align: auto) {

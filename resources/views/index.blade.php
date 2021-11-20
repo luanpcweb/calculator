@@ -28,22 +28,52 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-numbers">
             <button class="btn btn-primary btn-calculator-numbers" id="9" >9</button>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-numbers">
             <button class="btn btn-primary btn-calculator-numbers" id="8" >8</button>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-numbers">
             <button class="btn btn-primary btn-calculator-numbers" id="7" >7</button>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-operators">
             <button class="btn btn-primary btn-calculator-operator" id="sum" >+</button>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-numbers">
+            <button class="btn btn-primary btn-calculator-numbers" id="6" >6</button>
+        </div>
+        <div class="col-lg-3 col-numbers">
+            <button class="btn btn-primary btn-calculator-numbers" id="5" >5</button>
+        </div>
+        <div class="col-lg-3 col-numbers">
+            <button class="btn btn-primary btn-calculator-numbers" id="4" >4</button>
+        </div>
+        <div class="col-lg-3 col-operators">
+            <button class="btn btn-primary btn-calculator-operator" id="sum" >-</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-numbers">
+            <button class="btn btn-primary btn-calculator-numbers" id="3" >3</button>
+        </div>
+        <div class="col-lg-3 col-numbers">
+            <button class="btn btn-primary btn-calculator-numbers" id="2" >2</button>
+        </div>
+        <div class="col-lg-3 col-numbers">
+            <button class="btn btn-primary btn-calculator-numbers" id="1" >1</button>
+        </div>
+        <div class="col-lg-3 col-operators">
+            <button class="btn btn-primary btn-calculator-operator" id="mod" >MOD</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 offset-lg-8">
             <button class="btn btn-lg btn-primary btn-block" type="submit">=</button>
         </div>
     </div>
