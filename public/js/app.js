@@ -1,6 +1,7 @@
 
 var display = [];
 var state = true;
+var stateForSum = false;
 
 $(document).on("click", ".btn-calculator-numbers, .btn-calculator-operator", function(){
 
@@ -87,3 +88,38 @@ function clear(element)
     element.val('0');
     display = [];
 }
+
+$(document).on("click", "#equals", function(){
+
+    let calculation = display;
+
+    if (calculation.length <= 1 || isOperator(calculation[display.length - 1])) {
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: '/calculate',
+        headers: {
+            'X-CSRF-TOKEN': $('input[name="_token"]').val()
+        },
+        data: { calculation: calculation },
+        success: function(result){
+            console.log(result);
+            // $('#box_result').html(msg);
+            // setTimeout(function(){
+            //     processando(0);
+            // }, 500);
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+            console.log(jqXHR.responseText);
+            // $("#box_result").html(jqXHR.responseText);
+            // setTimeout(function(){
+            //     processando(0);
+            // }, 500);
+
+        }
+    });
+
+});
