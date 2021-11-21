@@ -24,7 +24,7 @@
         <p>Build form controls with floating labels via the</p>
     </div>
     <div class="form-label-group">
-        <input type="email" id="inputEmail" class="form-control" value="0" readonly>
+        <input type="email" id="display" class="form-control" value="0" readonly>
     </div>
 
     <div class="row">
@@ -38,7 +38,7 @@
             <button type="button" class="btn btn-secondary btn-calculator-numbers" id="7" >7</button>
         </div>
         <div class="col-lg-3 col-operators">
-            <button type="button" class="btn btn-primary btn-calculator-operator" id="more" >+</button>
+            <button type="button" class="btn btn-primary btn-calculator-operator" id="plus" >+</button>
         </div>
         <div class="col-lg-3 col-operators">
             <button type="button" class="btn btn-primary btn-calculator-operator" id="minus" >-</button>
@@ -56,10 +56,10 @@
             <button type="button" class="btn btn-secondary btn-calculator-numbers" id="4" >4</button>
         </div>
         <div class="col-lg-3 col-operators">
-            <button type="button" class="btn btn-primary btn-calculator-operator" id="multiple" >*</button>
+            <button type="button" class="btn btn-primary btn-calculator-operator" id="times" >*</button>
         </div>
         <div class="col-lg-3 col-operators">
-            <button type="button" class="btn btn-primary btn-calculator-operator" id="division" >%</button>
+            <button type="button" class="btn btn-primary btn-calculator-operator" id="divided" >/</button>
         </div>
     </div>
 
@@ -74,7 +74,7 @@
             <button type="button" class="btn btn-secondary btn-calculator-numbers" id="1" >1</button>
         </div>
         <div class="col-lg-3 col-operators">
-            <button type="button" class="btn btn-primary btn-calculator-operator" id="mod" >MOD</button>
+            <button type="button" class="btn btn-primary btn-calculator-operator" id="MOD" >MOD</button>
         </div>
         <div class="col-lg-3 col-operators">
             <button type="button" class="btn btn-danger btn-calculator-operator" id="reset" >Reset</button>
@@ -89,7 +89,7 @@
             <button type="button" class="btn btn-secondary btn-calculator-numbers" id="point" >.</button>
         </div>
         <div class="col-lg-6 col-numbers">
-            <button type="button" class="btn btn-success btn-block btn-calculator-numbers" id="equals" >=</button>
+            <button type="button" class="btn btn-success btn-block btn-calculator-equals" id="equals" >=</button>
         </div>
     </div>
 
