@@ -25,3 +25,9 @@ Url: http://localhost:8080/
 ```shell
 docker exec -it calculator_php php ./vendor/phpunit/phpunit/phpunit --configuration ./phpunit.xml
 ```
+
+
+## Next Steps
+
+* Create automated test with Cypress
+* Create Feature Tests
