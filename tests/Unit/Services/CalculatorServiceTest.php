@@ -73,6 +73,38 @@ class CalculatorServiceTest extends TestCase
 
     }
 
+    /**
+     * @test
+     */
+    public function shouldBeABonus()
+    {
+
+        $operation = ["1", "+", "1", "-", "1"];
+        $expected = 1;
+
+        $this->operatorServiceMock->method('execute')->willReturn(1);
+
+        $result = $this->calculatorService->calculate($operation);
+        $this->assertEquals($expected, $result['bonus']);
+
+    }
+
+    /**
+     * @test
+     */
+    public function shouldBeNotABonus()
+    {
+
+        $operation = ["6", "+", "1", "-", "2"];
+        $expected = 0;
+
+        $this->operatorServiceMock->method('execute')->willReturn(5);
+
+        $result = $this->calculatorService->calculate($operation);
+        $this->assertEquals($expected, $result['bonus']);
+
+    }
+
     public function operatorsValidantionProvider()
     {
         return [
