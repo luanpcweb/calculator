@@ -4,37 +4,73 @@ namespace App\Services;
 
 use App\Models\Calculator;
 use App\Repositories\CalculatorRepository;
+use App\Services\OperatorService;
 
 class CalculatorService
 {
-
-    private CalculatorRepository $calculatorRepository;
-
+    /**
+     * Const Operators
+     */
     const OPERATORS = ['+', '-', '*', '/', 'MOD'];
 
+    /**
+     * @var CalculatorRepository
+     */
+    private CalculatorRepository $calculatorRepository;
+
+    /**
+     * @var \App\Services\OperatorService
+     */
+    private OperatorService $operatorService;
+
+    /**
+     * @var
+     */
+    private $ip;
+
+    /**
+     * @param CalculatorRepository $calculatorRepository
+     * @param \App\Services\OperatorService $operatorService
+     */
     public function __construct(
-        CalculatorRepository $calculatorRepository
+        CalculatorRepository $calculatorRepository,
+        OperatorService $operatorService
     )
     {
         $this->calculatorRepository = $calculatorRepository;
+        $this->operatorService = $operatorService;
     }
 
+    /**
+     * @param $ip
+     */
+    public function ip($ip)
+    {
+        $this->ip = $ip;
+    }
+
+    /**
+     * @param array $operation
+     * @return array
+     */
     public function calculate(array $operation)
     {
        $this->validate($operation);
        $resultOperation = $this->execute($operation);
 
+       $bonus = $this->isBonus($operation, $resultOperation);
+
        $calculate = new Calculator(
-           '21312',
+           $this->ip,
            new \DateTime(),
            implode("", $operation),
            $resultOperation,
-           0
+           $bonus
        );
 
        $this->calculatorRepository->save($calculate);
 
-       return $resultOperation;
+       return ['result' => $resultOperation, 'bonus' => $bonus];
 
     }
 
@@ -55,17 +91,17 @@ class CalculatorService
     private function execute(array $operation)
     {
         $firstOperation = array_slice($operation, 0, 3);
-        $resultFirstOperation = $this->executeOperation($firstOperation[0], $firstOperation[2], $firstOperation[1]);
+        $resultFirstOperation = $this->operatorService->execute($firstOperation[0], $firstOperation[2], $firstOperation[1]);
 
-        $cntLenghtOperation = count($operation);
-        if ($cntLenghtOperation <= 3) {
+        $cntLengthOperation = count($operation);
+        if ($cntLengthOperation <= 3) {
             return $resultFirstOperation;
         }
 
         $secondIterator = 2;
         $timeLoop = 0;
         $nextResultOperation = 0;
-        $cntOperationWithoutFirstOperation = ($cntLenghtOperation - 3);
+        $cntOperationWithoutFirstOperation = ($cntLengthOperation - 3);
         $nextOperation = 0;
 
         for ($i=0; $i <= $cntOperationWithoutFirstOperation; $i+=2) {
@@ -75,9 +111,9 @@ class CalculatorService
                 array_unshift($nextOperation, $resultFirstOperation);
             }
 
-            if ($timeLoop > 0 && $secondIterator <= $cntLenghtOperation) {
+            if ($timeLoop > 0 && $secondIterator <= $cntLengthOperation) {
 
-                $nextResultOperation = $this->executeOperation($nextOperation[0], $nextOperation[2], $nextOperation[1]);
+                $nextResultOperation = $this->operatorService->execute($nextOperation[0], $nextOperation[2], $nextOperation[1]);
                 $nextOperation = array_slice($nextOperation, 3);
                 array_unshift($nextOperation, $nextResultOperation);
                 $secondIterator += 2;
@@ -91,30 +127,18 @@ class CalculatorService
 
     }
 
-    private function executeOperation($firstNumber, $secondNumber, $operator)
+    /**
+     * @param $operation
+     * @param $resultOperation
+     * @return int
+     */
+    private function isBonus($operation, $resultOperation): int
     {
-        switch ($operator) {
-            case '+':
-                $className = 'App\PlusOperation';
-                break;
-            case '-':
-                $className = 'App\MinusOperation';
-                break;
-            case '*':
-                $className = 'App\TimesOperation';
-                break;
-            case '/':
-                $className = 'App\DividedOperation';
-                break;
-            case 'MOD':
-                $className = 'App\ModOperation';
-                break;
-            default:
-                $className = 'App\PlusOperation';
+        if (array_key_exists($resultOperation, $operation)) {
+            return 1;
         }
 
-        $operatorInstance = new $className($firstNumber, $secondNumber);
-        return $operatorInstance->execute();
+        return 0;
     }
 
 }
