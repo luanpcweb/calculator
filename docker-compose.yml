@@ -19,6 +19,7 @@ services:
       - php
     volumes:
       - .:/opt/work
+      - ./.docker/php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
     container_name: calculator_nginx
 
   php:
