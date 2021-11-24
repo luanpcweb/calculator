@@ -61,7 +61,7 @@ class CalculatorService
        $bonus = $this->isBonus($operation, $resultOperation);
 
        $calculate = new Calculator(
-           $this->ip,
+           $this->ip ?? 0,
            new \DateTime(),
            implode("", $operation),
            $resultOperation,
