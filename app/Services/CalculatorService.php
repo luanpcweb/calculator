@@ -134,7 +134,7 @@ class CalculatorService
      */
     private function isBonus($operation, $resultOperation): int
     {
-        if (array_key_exists($resultOperation, $operation)) {
+        if (in_array($resultOperation, $operation)) {
             return 1;
         }
 
