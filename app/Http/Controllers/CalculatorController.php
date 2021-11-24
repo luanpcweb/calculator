@@ -13,7 +13,9 @@ class CalculatorController extends Controller
      */
     private $calculatorService;
 
-    public function __construct(CalculatorService $calculatorService)
+    public function __construct(
+        CalculatorService $calculatorService
+    )
     {
         $this->calculatorService = $calculatorService;
     }
@@ -28,8 +30,11 @@ class CalculatorController extends Controller
 
         try {
             $operation = $request->get('operation');
-            $result = $this->calculatorService->calculate($operation);
-            return response()->json(['result' => $result, 'bonus' => 0], 200);
+
+            $this->calculatorService->ip($request->ip());
+
+            $calculator = $this->calculatorService->calculate($operation);
+            return response()->json(['result' => $calculator['result'], 'bonus' => $calculator['bonus']], 200);
         } catch(\UnexpectedValueException $e) {
             return response()->json(['result' => '0', 'msg' => $e->getMessage()], 500);
         }
