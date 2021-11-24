@@ -115,9 +115,9 @@ $(document).on("click", "#equals", function(){
 
             if (result.bonus == 1) {
                 Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: jqXHR.responseJSON.msg
+                    icon: 'success',
+                    title: 'Bonus',
+                    text: 'We have a bonus!!'
                 })
             }
 
