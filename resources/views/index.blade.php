@@ -22,7 +22,6 @@
     @csrf
     <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">Calculator</h1>
-        <p>Build form controls with floating labels via the</p>
     </div>
     <div class="form-label-group">
         <input type="email" id="display" class="form-control" value="0" readonly>
@@ -100,6 +99,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="{{ asset('js/app.js') }}" ></script>
 

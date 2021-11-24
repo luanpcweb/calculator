@@ -39,6 +39,9 @@ $(document).on("click", ".btn-calculator-numbers, .btn-calculator-operator", fun
             value = '.';
             state = true;
             break;
+        case "MOD":
+            value = 'MOD';
+            state = false;
     }
 
     if (state === true ) {
@@ -91,9 +94,9 @@ function clear(element)
 
 $(document).on("click", "#equals", function(){
 
-    let calculation = display;
+    let operation = display;
 
-    if (calculation.length <= 1 || isOperator(calculation[display.length - 1])) {
+    if (operation.length <= 1 || isOperator(operation[display.length - 1])) {
         return;
     }
 
@@ -103,22 +106,27 @@ $(document).on("click", "#equals", function(){
         headers: {
             'X-CSRF-TOKEN': $('input[name="_token"]').val()
         },
-        data: { calculation: calculation },
+        data: { operation: operation },
         success: function(result){
-            console.log(result);
-            // $('#box_result').html(msg);
-            // setTimeout(function(){
-            //     processando(0);
-            // }, 500);
+
+            $("#display").val(result.result);
+            display = [];
+            display[0] = result.result;
+
+            if (result.bonus == 1) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: jqXHR.responseJSON.msg
+                })
+            }
+
         },
         error: function(jqXHR, textStatus, errorThrown)
         {
-            console.log(jqXHR.responseText);
-            // $("#box_result").html(jqXHR.responseText);
-            // setTimeout(function(){
-            //     processando(0);
-            // }, 500);
-
+            $("#display").val('ERRO');
+            display = [];
+            display[0] = 'ERRO';
         }
     });
 
